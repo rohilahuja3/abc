@@ -3,3 +3,29 @@ sudo python Tools/autotest/sim_vehicle.py --map --console -v ArduCopter
 mavproxy.py --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --out 127.0.0.1:14550 --out 127.0.0.1:14551
 
 python3 drones1.py
+
+1) Go to ~/DroneSim-Installer/ardupilot first run these 3 commands
+
+sudo git submodule update --init --recursive
+sudo ./waf configure --board sitl
+sudo ./waf copter
+
+2) Go to ~/DroneSim-Installer/ardupilot/ArduCopter run the command
+
+../Tools/autotest/fg_quad_view.sh
+
+3) Go to ~/DroneSim-Installer/ardupilot/ArduCopter run the command
+
+sudo ../Tools/autotest/sim_vehicle.py -L KSFO
+
+4) If it is waiting for connection run, 
+
+mavproxy.py --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --out 127.0.0.1:14550 --out 127.0.0.1:14551
+
+5) Go to ~/DroneSim-Installer/abdaz$ and run the command 
+
+mono MissionPlanner.exe
+
+6) Finally go to the directory where the code is saved and run the code
+
+python3 code.py
